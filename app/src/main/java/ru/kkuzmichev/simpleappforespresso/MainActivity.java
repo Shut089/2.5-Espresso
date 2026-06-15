@@ -18,6 +18,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.test.espresso.IdlingRegistry;
 
 import ru.kkuzmichev.simpleappforespresso.databinding.ActivityMainBinding;
 

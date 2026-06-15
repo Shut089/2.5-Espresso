@@ -19,6 +19,7 @@ import java.util.ArrayList;
 
 import ru.kkuzmichev.simpleappforespresso.R;
 import ru.kkuzmichev.simpleappforespresso.databinding.FragmentGalleryBinding;
+import ru.kkuzmichev.simpleappforespresso.EspressoIdlingResource;
 
 public class GalleryFragment extends Fragment {
 
@@ -59,16 +60,22 @@ public class GalleryFragment extends Fragment {
 
 
     private void fakeLoadData() {
+
+        EspressoIdlingResource.increment();
+
         progressBar.setVisibility(View.VISIBLE);
         recyclerView.setVisibility(View.INVISIBLE);
+
         Handler handler = new Handler();
+
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                {
-                    progressBar.setVisibility(View.INVISIBLE);
-                    recyclerView.setVisibility(View.VISIBLE);
-                }
+
+                progressBar.setVisibility(View.INVISIBLE);
+                recyclerView.setVisibility(View.VISIBLE);
+
+                EspressoIdlingResource.decrement();
             }
         }, 1500);
     }
